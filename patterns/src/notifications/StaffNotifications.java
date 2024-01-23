@@ -12,6 +12,6 @@ public class StaffNotifications implements Observer {
 
     @Override
     public void notify(String message) {
-        System.out.printf("Insurance company %s: %s\n", locationId, message);
+        System.out.printf("Clothes company %s: %s\n", locationId, message);
     }
 }
