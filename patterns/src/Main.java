@@ -1,5 +1,5 @@
-import factories.InsuranceFactory;
-import insurance_case.Car_stolen;
+import clothes_case.Discount_shoes;
+import factories.ClothesFactory;
 import notifications.AdminNotifications;
 import notifications.CustomerNotifications;
 import notifications.StaffNotifications;
@@ -7,26 +7,26 @@ import observers.Observer;
 
 public class Main {
     public static void main(String[] args) {
-        InsuranceFactory insuranceFactory = new InsuranceFactory();
-        Accident accident = new Accident();
+        ClothesFactory clothesFactory = new ClothesFactory();
+        Promotion promotion = new Promotion();
 
-        Observer customerNotifications = new CustomerNotifications("John");
+        Observer customerNotifications = new CustomerNotifications("Kostya");
         Observer staffNotifications = new StaffNotifications(1);
         Observer adminNotifications = new AdminNotifications();
 
         System.out.println("-----Add observers-----");
-        accident.addObserver(customerNotifications);
-        accident.addObserver(staffNotifications);
-        accident.addObserver(adminNotifications);
+        promotion.addObserver(customerNotifications);
+        promotion.addObserver(staffNotifications);
+        promotion.addObserver(adminNotifications);
 
-        System.out.println("-----Add info-----");
-        accident.addInsurance(insuranceFactory.createKASKO());
-        accident.addInsurance_case(new Car_stolen());
+        System.out.println("-----Add clothes-----");
+        promotion.addClothes(clothesFactory.createShoes());
+        promotion.addClothes_case(new Discount_shoes());
 
         System.out.println("-----Remove observer-----");
-        accident.removeObserver(adminNotifications);
+        promotion.removeObserver(adminNotifications);
 
-        System.out.println("-----Complete order-----");
-        accident.calculateInsurance();
+        System.out.println("-----Discount price-----");
+        promotion.calculatePrice();
     }
 }
