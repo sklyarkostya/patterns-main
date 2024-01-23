@@ -25,8 +25,5 @@ public class Main {
 
         System.out.println("-----Remove observer-----");
         promotion.removeObserver(adminNotifications);
-
-        System.out.println("-----Discount price-----");
-        promotion.calculatePrice();
     }
 }

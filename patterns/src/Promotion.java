@@ -23,10 +23,6 @@ public class Promotion implements Observable {
         notifyObservers(String.format("The discount percentage is as follows %s", clothes_case.getSale()));
     }
 
-    public void calculatePrice() {
-        notifyObservers("The final clothing cost");
-    }
-
     @Override
     public void addObserver(Observer observer) {
         observers.add(observer);
